@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import "../css/Homepage.css"
 import imghomepage from "../img/Homepage/img_Homepage.png";
 import logo from "../img/Logo2.svg";
@@ -12,18 +13,21 @@ function Homepage(){
     return(
         <div className='homepagegrid'>
             <div className='headerhp'>
-                <img src={logo} alt="Mellowdy's Logo"/>
+                <Link to='/' className='linklogo'>
+                    <img src={logo} alt="Mellowdy's Logo"/>
+                </Link>
+                
                     <div className='menu'>
-                    <p>About us</p>    
+                    <Link to='/about' className='linkToAbout'>About us</Link>    
                     <img src={moon} alt="A moon icon"/>
                 </div>
             </div>
             <div  className='maintext'>
                 <h2>Find the <span>playlist</span><br/>that suits you.</h2>
                 <h3>Let the music take you away</h3>
-                <div className="button">
+                <Link to='/create-playlist' className="button">
                     <p>Get started</p>
-                </div>
+                </Link>
             </div>
             <img src={imghomepage} alt="A women listening music" className='imghomepage'/>
 
