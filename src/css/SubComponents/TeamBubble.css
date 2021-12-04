@@ -16,22 +16,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 2;
 }
 
-.headerau .linklogo{
-    height: 100%;
-    width: fit-content;
-}
-
-.headerau .linklogo img{
+.headerau>img{
     height: 120%;
-    transition: 0.1s;
-}
-
-.linklogo:hover img{
-    transform: scale(1.1);
-    transition: 0.1s;
 }
 
 .contentAboutUs{
