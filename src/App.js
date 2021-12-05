@@ -6,6 +6,7 @@ import FrontToken from './Components/frontToken';
 import {BrowserRouter as Router, Route, Link, Routes, Redirect} from  'react-router-dom';
 
 
+
 function App(){
   return(
     

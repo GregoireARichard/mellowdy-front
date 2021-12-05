@@ -1,13 +1,17 @@
 import axios from "axios";
-import { MellowUser, MellowUsers } from "../decl/user.decl";
+import { MellowUser } from "../decl/MellowUser.decl";
 
-export const sendPost = async (): Promise<void> =>{
+export const sendPost = async (MellowUsers : MellowUser): Promise<MellowUser> =>{
     try{
-        const res = await axios.get(
-            `${process.env.REACT_APP_BASE_URL}/`
-            //send token
+        const res = await axios.post(
+            `${process.env.REACT_APP_BASE_URL}/`, MellowUsers,
+               { headers: {
+                    'Authorization' : 'Bearer ' + window.localStorage.getItem('frontToken') ?? "",
+                } }
+            
           );
-    }catch{
-
+          return res.data;
+    }catch(error){
+        throw new Error('Request error')
     }
 }
