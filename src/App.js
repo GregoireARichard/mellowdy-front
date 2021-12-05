@@ -2,7 +2,7 @@ import React from 'react';
 import Homepage from './Components/Homepage.tsx';
 import AboutUs from './Components/AboutUs.tsx';
 import CreatePlaylist from './Components/CreatePlaylist';
-import {BrowserRouter as Router, Route, Link, Routes} from  'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from  'react-router-dom';
 
 
 function App(){
