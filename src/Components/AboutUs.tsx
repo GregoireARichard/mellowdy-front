@@ -33,7 +33,7 @@ function AboutUs(){
                 </Link>
                 <div className="menu">
                     <p className="actif">About us</p>
-                    <Link to='/create-playlist'>New Playlist</Link>
+                    <Link className="linkToGP" to='/create-playlist'>New Playlist</Link>
                     <img src={moon} alt="A moon icon" />
                 </div>
             </div>
@@ -50,7 +50,7 @@ function AboutUs(){
                         index={index}
                         bubble={bubble}
                         getRightClickedId={(index: number) : void => {
-                            if(bubbles[index].bubbleid!=9){
+                            if(bubbles[index].bubbleid!==9){
                                 let temporarybubbles = [...bubbles];
                                 let temporarybubble = {...temporarybubbles[index]}
                                 temporarybubble.bubbleid+=1
@@ -59,7 +59,7 @@ function AboutUs(){
                         }
                         }}
                         getLeftClickedId={(index: number) : void => {
-                            if(bubbles[index].bubbleid!=0){
+                            if(bubbles[index].bubbleid!==0){
                                 let temporarybubbles = [...bubbles];
                                 let temporarybubble = {...temporarybubbles[index]}
                                 temporarybubble.bubbleid-=1

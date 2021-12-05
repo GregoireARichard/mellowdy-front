@@ -5,3 +5,12 @@
   color: black;
   user-select: none;
 }
+
+@font-face{
+  font-family:'George';
+  src:url(./font/George.ttf)
+}
+
+a{
+  color: black;
+}

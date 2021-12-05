@@ -17,9 +17,18 @@ import guitar from "../img/GeneratePlaylist/guitar.svg"
 import guitar1 from "../img/GeneratePlaylist/guitar1.svg"
 import piano from "../img/GeneratePlaylist/piano.svg"
 
+import sleeping from "../img/GeneratePlaylist/sleeping.png"
+import dance from "../img/GeneratePlaylist/dance.png"
+
+import triangle from "../img/ElementsBackground/triangle.svg"
+import circle1 from "../img/ElementsBackground/circle1.svg"
+import circle2 from "../img/ElementsBackground/circle2.svg"
+import note from "../img/ElementsBackground/note1.svg"
+
+
 import '../css/CreatePlaylist.css'
 
-import { Slider, Radio,InputNumber,Input } from 'antd';
+import { Slider, Radio,Input, InputNumber } from 'antd';
 
 
 
@@ -29,45 +38,44 @@ import 'antd/dist/antd.css';
 
 function CreatePlaylist() {
 
-    const VerticalMarks = {
-        0: {
+    const TempoMarks = {
+        40: {
             style: {
-              transform:'translateX(15px)'
+              transform:'translateX(30px)'
             },
             label: <p>Low</p>,
           },
       
-        10: {
+        250: {
             style: {
-              transform:'translateX(15px)'
+              transform:'translateX(30px)'
             },
             label: <p>High</p>,
           }
     }
 
-    const HorizontalsMarks = {
+    const PopularityMarks = {
         0: {
             style: {
-              transform:'translateY(15px)'
+              transform:'translateX(30px)'
             },
             label: <p>Low</p>,
           },
-        
-        10: {
+      
+        100: {
             style: {
-              transform:'translateY(15px)'
+              transform:'translateX(30px)'
             },
             label: <p>High</p>,
           }
     }
 
+    
     const verticalstyle = {
         height:150,
     };
 
-    const horizontalstyle = {
-        width:250,
-    }
+   
 
     const verticaltrackstyletest = {
         width:35,
@@ -95,50 +103,55 @@ function CreatePlaylist() {
     let energy:number=0.5;
 
     const getValues = ()=>{
-       
+       console.log(artistname,trackname,numberOfSong,popularity,liveness,tempo,instrumentalness,energy)
     }
 
     const getArtistName=(e:any)=>{
         artistname = e.target.value;
-        console.log(artistname)
+        
     }
 
     const getTrackName=(e:any)=>{
-        trackname=e.target.value;
-        console.log(trackname)
+        trackname=e.target.value;  
     }
 
    
 
     let getNumberOfSongs = (value:number)=>{
         numberOfSong = value;
-        console.log(numberOfSong)
+        
     }
 
     let getPopularity = (value:number)=>{
         popularity = value
-        console.log(popularity)
+        
     }
 
-    let getLiveness = (value:number)=>{
-        liveness=value;
-        console.log(liveness)
-    }
+    
 
     let getTempo = (value:number)=>{
         tempo=value;
-        console.log(tempo)
+        
     }
 
     let getInstrumentalness = (e:any)=>{
         instrumentalness =e.target.value;
-        console.log(instrumentalness)
+        
     }
 
-    let getEnergy = (value:number) =>{
-        energy=value;
-        console.log(energy)
+    let getLiveness = (value:number)=>{
+        liveness=value
     }
+
+    let getEnergy = (value:number)=>{
+        energy=value
+    }
+
+    
+
+    
+
+    
 
 
 
@@ -205,20 +218,62 @@ function CreatePlaylist() {
                        
 
                         <div className='formdiv formparameters'>
-                            <div>
-                                <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical defaultValue={0.5} min={0} max={1} step={0.1} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks} onChange={getEnergy} className='energy' />
-                                    <h3 className='energytitle'>Energy</h3>
-                                </div>
-                                <div className='verticalselectdiv'>
-                                    <Slider onChange={getLiveness} style={verticalstyle} step={0.1} vertical defaultValue={0.5} min={0} max={1} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks}  className='liveness' />
-                                    <h3 className='livenesstitle'>Liveness</h3>
+                            <div className='firstparam'>
+
+                                <div className='livenessContainer'>
+
+                                    <div>
+                                        <h3>Liveness</h3>
+                                        <div>
+                                            <div>
+                                                <span>studio</span>
+                                                <span className='numberspan'>0</span>
+                                            </div>
+                                            <InputNumber min={0} max={1} step={0.1} defaultValue={0.5} size='small' onChange={getLiveness}/>
+                                            <div>
+                                                <span>concert</span>
+                                                <span className='numberspan'>1</span>
+                                            </div>
+                                        </div>
+                                        <p></p>
+                                    </div>
+
                                 </div>
 
-                                <div className='horizontalselectdiv'>
+                                <div className='slidersContainer'>
+
+                                    <div className='verticalselectdiv'>
+                                        <Slider onChange={getTempo} style={verticalstyle} vertical defaultValue={100} min={40} max={250} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={TempoMarks} className='tempo' />
+                                        <h3 className='tempotitle'>Tempo</h3>
+                                    </div>
+
+                                    <div className='verticalselectdiv'>
+                                        <Slider style={verticalstyle} vertical min={0} max={100} defaultValue={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest}  marks={PopularityMarks} className='popularity' onChange={getPopularity}/>
+                                        <h3 className='popularitytitle'>Popularity</h3>
+                                    </div>
+                                
+                                </div>
+                               
+                            </div>
+                            <div className='secondparam'>
+                                <div className='EnergyContainer'>
+                                    <h3>Energy</h3>
+                                    <div>
+                                        <div>
+                                            <img src={sleeping} alt="" />
+                                            <div>
+                                                <span>0</span>
+                                                <InputNumber min={0} max={1} step={0.1} defaultValue={0.5} size='small' onChange={getEnergy}/>
+                                                <span>1</span>
+                                            </div>
+                                            <img src={dance} alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='RadioContainer'>
+
+                                    <h3 className='instrumentalnesstitle'>Instrumentalness</h3>
                                     
-                                    
-                                     
                                         <Radio.Group defaultValue="0.5"  size='middle' className='instrumentalness' onChange={getInstrumentalness}>
                                             <Radio.Button value="0.25">
                                                 <img src={mic} alt="" />
@@ -237,37 +292,74 @@ function CreatePlaylist() {
                                                 <img src={guitar1} alt="" />
                                                 <img src={piano} alt="" />
                                             </Radio.Button>
-                                        </Radio.Group>
+                                        </Radio.Group>  
+                                     
 
-                                        <h3 className='instrumentalnesstitle'>Instrumentalness</h3>
-                                    
-                                    
-                                   
-                                    
                                 </div>
-
-                                <div className='verticalselectdiv'>
-                                    <Slider onChange={getTempo} style={verticalstyle} vertical defaultValue={100} min={40} max={250} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks} className='tempo' />
-                                    <h3 className='tempotitle'>Tempo</h3>
-                                </div>
-
-                                <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical min={0} max={100} defaultValue={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} tooltipVisible={false} marks={VerticalMarks} className='popularity' onChange={getPopularity}/>
-                                    <h3 className='popularitytitle'>Popularity</h3>
-                                </div>
-                                
-                                
-                                
-
                             </div>
                         </div>
 
 
                         <div className='formdiv generatebutton'>
-                            <input type="submit" value="Generate playlist" onClick={getValues}/>
+                            <input type="submit" value="Generate playlist" onSubmit={getValues}/>
                         </div>
 
             </form>
+
+            <div className='hoverablebgdiv hbgd10'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd11'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd12'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd13'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd15'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd16'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd17'>
+                <img src={circle1} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd18'>
+                <img src={circle1} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd14'>
+                <img src={circle2} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd19'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd20'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd21'>
+                <img src={triangle} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd22'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd23'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd24'>
+                <img src={note} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd25'>
+                <img src={circle1} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd26'>
+                <img src={circle1} alt="A background element icon" />
+            </div>
+            <div className='hoverablebgdiv hbgd27'>
+                <img src={circle2} alt="A background element icon" />
+            </div>
 
         </div>
     );
