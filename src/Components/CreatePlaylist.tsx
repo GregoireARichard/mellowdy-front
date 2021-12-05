@@ -19,7 +19,7 @@ import piano from "../img/GeneratePlaylist/piano.svg"
 
 import '../css/CreatePlaylist.css'
 
-import { Slider, Radio } from 'antd';
+import { Slider, Radio,InputNumber,Input } from 'antd';
 
 
 
@@ -76,7 +76,7 @@ function CreatePlaylist() {
     };
 
     const horizontaltrackstyletest = {
-        height:35,
+        height:5,
         backgroundColor:'#4CB5AA',
         borderRadius:'5px'
     }
@@ -85,76 +85,59 @@ function CreatePlaylist() {
         display:'none',
     };
 
-    const energytitle = document.getElementsByClassName('energytitle')
-    const [EnergyState, setEnergyState] = React.useState(true)
-    const toggleEnergyState = ()=>{
-        setEnergyState(!EnergyState);
-        if(EnergyState===true){
-            energytitle[0].style.color = '#45B5AA'
-        }else{
-            energytitle[0].style.color = '#BFBFBF'
-        }
-        
+    let artistname:string = '';
+    let trackname:string = '';
+    let numberOfSong:number = 10;
+    let popularity:number = 50;
+    let liveness:number=0.5;
+    let tempo:number=100;
+    let instrumentalness:number = 0.5;
+    let energy:number=0.5;
+
+    const getValues = ()=>{
+       
     }
 
-
-
-    const livenesstitle = document.getElementsByClassName('livenesstitle')
-    const [LivenessState, setLivenessState] = React.useState(true)
-    const toggleLivenessState = ()=>{
-        setLivenessState(!LivenessState);
-        if(LivenessState===true){
-            livenesstitle[0].style.color = '#45B5AA'
-        }else{
-            livenesstitle[0].style.color = '#BFBFBF'
-        }
-        
+    const getArtistName=(e:any)=>{
+        artistname = e.target.value;
+        console.log(artistname)
     }
 
-
-    const instrumentalnesstitle = document.getElementsByClassName('instrumentalnesstitle')
-    const [InstrumentalnessState, setInstrumentalnessState] = React.useState(true)
-    const toggleInstrumentalnessState = ()=>{
-        setInstrumentalnessState(!InstrumentalnessState);
-        
-        if(InstrumentalnessState===true){
-            instrumentalnesstitle[0].style.color = '#45B5AA'
-        }else{
-            instrumentalnesstitle[0].style.color = '#BFBFBF'
-        }
-        
+    const getTrackName=(e:any)=>{
+        trackname=e.target.value;
+        console.log(trackname)
     }
 
+   
 
-    const tempotitle = document.getElementsByClassName('tempotitle')
-    const [TempoState, setTempoState] = React.useState(true)
-    const toggleTempoState = ()=>{
-        setTempoState(!TempoState);
-        
-        if(TempoState===true){
-            tempotitle[0].style.color = '#45B5AA'
-        }else{
-            tempotitle[0].style.color = '#BFBFBF'
-        }
-        
+    let getNumberOfSongs = (value:number)=>{
+        numberOfSong = value;
+        console.log(numberOfSong)
     }
 
-
-    const popularitytitle = document.getElementsByClassName('popularitytitle')
-    const [PopularityState, setPopularityState] = React.useState(true)
-    const togglePopularityState = ()=>{
-        setPopularityState(!PopularityState);
-        
-        if(PopularityState===true){
-            popularitytitle[0].style.color = '#45B5AA'
-        }else{
-            popularitytitle[0].style.color = '#BFBFBF'
-        }
-        
+    let getPopularity = (value:number)=>{
+        popularity = value
+        console.log(popularity)
     }
 
-    const sossur = ()=>{
-        
+    let getLiveness = (value:number)=>{
+        liveness=value;
+        console.log(liveness)
+    }
+
+    let getTempo = (value:number)=>{
+        tempo=value;
+        console.log(tempo)
+    }
+
+    let getInstrumentalness = (e:any)=>{
+        instrumentalness =e.target.value;
+        console.log(instrumentalness)
+    }
+
+    let getEnergy = (value:number) =>{
+        energy=value;
+        console.log(energy)
     }
 
 
@@ -174,10 +157,10 @@ function CreatePlaylist() {
                 </div>
             </div>
 
-            <form action="" className='formgp'>
+            <form className='formgp'>
 
                         <div>
-                            <h2>Hi <span>user,</span></h2>
+                            <h2>Hi user,</h2>
                             <p>What do you feel like listening to today ?</p>
                         </div>
 
@@ -185,7 +168,7 @@ function CreatePlaylist() {
 
 
                         <div className='formdiv formartisttrack'>
-                            <p>*You must choose at least one for each</p>
+                            <p>*You must choose one for each</p>
                             <div>
                                 <div>
                                     <div>
@@ -196,7 +179,7 @@ function CreatePlaylist() {
                                             <img src={artist1}/>
                                         </div>
                                     </div>
-                                    <input type="text" name="artist" id="artist" placeholder='artist' required/>
+                                    <Input placeholder='Artist name...' required onChange={getArtistName}/>
 
                                 </div>
                                 <div>
@@ -208,37 +191,43 @@ function CreatePlaylist() {
                                             <img src={track1} />
                                         </div>
                                     </div>
-                                    <input type="text" name="track" id="track" placeholder='track' required/>
+                                    <Input placeholder='Track name...' required onChange={getTrackName}/>
                                 </div> 
                             </div>
                         </div>
 
 
+                        <div className='formdiv songnumber'>
+                            <p>How many songs would you like in your playlist?</p>
+                            <Slider min={1} max={100} defaultValue={10} trackStyle={horizontaltrackstyletest} className='numberOfSong' onChange={getNumberOfSongs}/>
+                        </div>
+
+                       
+
                         <div className='formdiv formparameters'>
-                            <p>Click on the title of a parameter so that it is taken into account in your playlist creation</p>
                             <div>
                                 <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical defaultValue={10} min={0} max={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks}  className='energy' disabled={EnergyState}/>
-                                    <h3 onClick={toggleEnergyState} className='energytitle'>Energy</h3>
+                                    <Slider style={verticalstyle} vertical defaultValue={0.5} min={0} max={1} step={0.1} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks} onChange={getEnergy} className='energy' />
+                                    <h3 className='energytitle'>Energy</h3>
                                 </div>
                                 <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical defaultValue={10} min={0} max={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks}  className='liveness' disabled={LivenessState}/>
-                                    <h3 onClick={toggleLivenessState} className='livenesstitle'>Liveness</h3>
+                                    <Slider onChange={getLiveness} style={verticalstyle} step={0.1} vertical defaultValue={0.5} min={0} max={1} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks}  className='liveness' />
+                                    <h3 className='livenesstitle'>Liveness</h3>
                                 </div>
 
                                 <div className='horizontalselectdiv'>
                                     
                                     
                                      
-                                        <Radio.Group defaultValue="0.66"  size='middle' className='instrumentalness' disabled={InstrumentalnessState}>
-                                            <Radio.Button value="0">
+                                        <Radio.Group defaultValue="0.5"  size='middle' className='instrumentalness' onChange={getInstrumentalness}>
+                                            <Radio.Button value="0.25">
                                                 <img src={mic} alt="" />
                                             </Radio.Button>
-                                            <Radio.Button value="0.33">
+                                            <Radio.Button value="0.5">
                                                 <img src={mic} alt="" />
                                                 <img src={guitar} alt="" />     
                                             </Radio.Button>
-                                            <Radio.Button value="0.66">
+                                            <Radio.Button value="0.75">
                                                 <img src={mic} alt="" />
                                                 <img src={guitar} alt="" />
                                                 <img src={piano} alt="" />
@@ -250,7 +239,7 @@ function CreatePlaylist() {
                                             </Radio.Button>
                                         </Radio.Group>
 
-                                        <h3 onClick={toggleInstrumentalnessState} className='instrumentalnesstitle'>Instrumentalness</h3>
+                                        <h3 className='instrumentalnesstitle'>Instrumentalness</h3>
                                     
                                     
                                    
@@ -258,13 +247,13 @@ function CreatePlaylist() {
                                 </div>
 
                                 <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical defaultValue={10} min={0} max={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks} className='tempo' disabled={TempoState} />
-                                    <h3 onClick={toggleTempoState} className='tempotitle'>Tempo</h3>
+                                    <Slider onChange={getTempo} style={verticalstyle} vertical defaultValue={100} min={40} max={250} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} marks={VerticalMarks} className='tempo' />
+                                    <h3 className='tempotitle'>Tempo</h3>
                                 </div>
 
                                 <div className='verticalselectdiv'>
-                                    <Slider style={verticalstyle} vertical min={0} max={10} defaultValue={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} tooltipVisible={false} marks={VerticalMarks} className='popularity'disabled={PopularityState} />
-                                    <h3 onClick={togglePopularityState} className='popularitytitle'>Popularity</h3>
+                                    <Slider style={verticalstyle} vertical min={0} max={100} defaultValue={10} trackStyle={verticaltrackstyletest} handleStyle={handlestyletest} tooltipVisible={false} marks={VerticalMarks} className='popularity' onChange={getPopularity}/>
+                                    <h3 className='popularitytitle'>Popularity</h3>
                                 </div>
                                 
                                 
@@ -274,13 +263,8 @@ function CreatePlaylist() {
                         </div>
 
 
-                        <div className='formdiv playlistnamediv'>
-                            <p>What name do you want to give to it  ?</p>
-                            <input type="text" name="playlistname" id="playlistname" placeholder="Your playlist's name ..." required/>
-                        </div>
-
                         <div className='formdiv generatebutton'>
-                            <input type="submit" value="Generate playlist" onSubmit={sossur}/>
+                            <input type="submit" value="Generate playlist" onClick={getValues}/>
                         </div>
 
             </form>
