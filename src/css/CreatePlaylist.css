@@ -38,6 +38,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    
 }
 
 .formartisttrack{
@@ -100,68 +101,11 @@
 }
 
 
-.formparameters{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40vh;
-}
-
-.formparameters>div{
-    height: 70%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.verticalselectdiv{
-    width: 15%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.formparameters h3{
-    text-align: center;
-    color: #BFBFBF;
-}
-
-.verticalselectdiv p, .horizontalselectdiv p{
-    color: #45B5AA;
-}
-
-
-.ant-slider-vertical .ant-slider-track{
-    transform: translateX(-50%);
-}
-
-.horizontalselectdiv{
-    width: 30%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
 
 
 
-.instrumentalness{
-    width: 100%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
 
-.instrumentalness label{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: space-evenly;
-}
+
 
 
 
@@ -196,4 +140,332 @@ p{
 .formgp>div>h2{
     text-align: center;
     color: #45B5AA;
+}
+
+
+.formparameters{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60vh;
+}
+
+.formparameters h3{
+    font-family: 'George';
+    font-size: 25px;
+    color: #45B5AA;
+}
+
+.formparameters .firstparam{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.formparameters .secondparam{
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.secondparam .RadioContainer, .secondparam .EnergyContainer{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.RadioContainer>div{
+    width: 100%;
+    height: 50%;
+    background-color: #45B5AA;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.RadioContainer>div label{
+    width: 20%;
+    border-radius: 10px;
+    height: 70%;
+    background-color: #D8EEEC;
+    border: none;
+}
+
+.RadioContainer>div label::before{
+    border: none;
+}
+
+.RadioContainer>div label img{
+    width: 30%;
+}
+
+.RadioContainer>div label span{
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.EnergyContainer>div{
+    background-color: #45B5AA;
+    width: 60%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.EnergyContainer>div>div{
+    background-color: #D8EEEC;
+    width: 90%;
+    height: 80%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.EnergyContainer>div>div>img{
+    height: 80%;
+    max-width: 25%;
+}
+
+.EnergyContainer>div>div>div{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.EnergyContainer .ant-input-number{
+    height: 40%;
+    font-size: 11px;
+    width: 60%;
+    
+}
+
+.EnergyContainer>div>div>div>img{
+    width: 15%;
+}
+
+.EnergyContainer>div>div>div>span{
+    width: 10%;
+    text-align: center;
+    color:#45B5AA;
+}
+
+
+.livenessContainer{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.livenessContainer>div{
+    width: 20vw;
+    height: 20vw;
+    background-color: #45B5AA;
+    border-radius: 50%;
+    border:5px solid #8FC1DB;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.livenessContainer h3, .livenessContainer p{
+    color: #ffffff;
+    height: 15%;
+}
+
+.livenessContainer>div>div{
+    width: 80%;
+    height: 30%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.livenessContainer>div>div>span{
+    color: #ffffff;
+}
+
+.livenessContainer>div>div>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: none;
+    width: 30%;
+    height: 100%;
+}
+
+.livenessContainer>div>div>div>span{
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.livenessContainer .numberspan{
+    width: 30px;
+    height:30px;
+    background-color: #D8EEEC;
+    border-radius: 50%;
+    text-align: center;
+    color: #45B5AA;
+    padding-top: 5px;
+}
+
+.livenessContainer .ant-input-number{
+    height: 40%;
+    font-size: 11px;
+    
+}
+
+
+
+
+
+
+.slidersContainer{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.slidersContainer p {
+    color: #45B5AA;
+}
+
+.ant-slider-dot{
+    transform: translateX(15px);
+}
+
+.generatebutton input{
+    background-color: #45B5AA;
+    color: #ffffff;
+    width: 20%;
+    height: 120%;
+    border-radius: 7px;
+    border:none;
+}
+
+.hbgd10{
+    left: 5vw;
+    top: 75vh;
+}
+
+.hbgd12{
+    left: 15vw;
+    top: 25vh;
+}
+
+.hbgd13{
+    left: 60vw;
+    top: 20vh;
+}
+
+.hbgd14{
+    left: 40vw;
+    top: 10vh;
+}
+
+.hbgd15{
+    left:50vw;
+    top: 80vh;
+}
+
+.hbgd16{
+    left: 85vw;
+    top: 17vh;
+}
+
+.hbgd17{
+    left: 45vw;
+    top: 195vh;
+}
+
+.hbgd18{
+    left: 10vw;
+    top: 110vh;
+}
+
+.hbgd14{
+    left: 70vw;
+    top: 105vh;
+}
+
+.hbgd19{
+    top: 87vh;
+    left:92vw
+}
+.hbgd20{
+    top: 145vh;
+    left:91vw
+}
+
+.hbgd21{
+    top: 175vh;
+    left:60vw
+}
+
+.hbgd22{
+    top: 158vh;
+    left:5vw
+}
+
+.hbgd23{
+    top: 103vh;
+    left:30vw
+}
+
+.hbgd24{
+    top: 189vh;
+    left:9vw
+}
+
+.hbgd25{
+    top: 54vh;
+    left:91vw
+}
+
+.hbgd26{
+    top: 179vh;
+    left:35vw
+}
+
+.hbgd27{
+    top: 194vh;
+    left:91vw
+}
+
+.hbgd10:hover img,.hbgd14:hover img,.hbgd19:hover img,.hbgd23:hover img,.hbgd27:hover img{
+    transform: translate(150%, 150%);
+}
+
+.hbgd11:hover img,.hbgd15:hover img,.hbgd20:hover img,.hbgd24:hover img{
+    transform: translate(-150%, 150%);
+}
+
+.hbgd12:hover img,.hbgd16:hover img,.hbgd21:hover img,.hbgd25:hover img{
+    transform: translate(150%, -150%);
+}
+
+.hbgd13:hover img,.hbgd17:hover img,.hbgd18:hover img,.hbgd22:hover img,.hbgd26:hover img{
+    transform: translate(-150%, -150%);
 }

@@ -7,6 +7,13 @@
     overflow: hidden;
 }
 
+.linkToAbout{
+    color: #000000;
+}
+
+.button p {
+    color: white;
+}
 
 .headerhp{
     

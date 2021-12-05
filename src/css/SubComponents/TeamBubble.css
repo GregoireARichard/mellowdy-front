@@ -336,3 +336,11 @@
     transition: 200ms;
     overflow: visible;
 }
+
+.linkToGP{
+    color: black;
+}
+
+.linkToGP:hover{
+    color: #8ED0CA;
+}
