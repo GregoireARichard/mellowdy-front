@@ -25,9 +25,8 @@ function Homepage(){
             <div  className='maintext'>
                 <h2>Find the <span>playlist</span><br/>that suits you.</h2>
                 <h3>Let the music take you away</h3>
-                <Link to='/create-playlist' className="button">
-                    <p>Get started</p>
-                </Link>
+                
+                <a href="http://localhost:8080/oauth" className="button">Get started</a>
             </div>
             <img src={imghomepage} alt="A women listening music" className='imghomepage'/>
 
