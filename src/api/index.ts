@@ -1,10 +1,12 @@
 import axios from "axios";
 import { MellowUser } from "../decl/MellowUser.decl";
 
+const route = 'http://127.0.0.1:8080/'
 export const sendPost = async (MellowUsers : MellowUser): Promise<MellowUser> =>{
     try{
         const res = await axios.post(
-            `${process.env.REACT_APP_BASE_URL}/`, MellowUsers,
+            
+            `${route}/`, MellowUsers,
                { headers: {
                     'Authorization' : 'Bearer ' + window.localStorage.getItem('frontToken') ?? "",
                 } }

@@ -24,6 +24,7 @@ import triangle from "../img/ElementsBackground/triangle.svg"
 import circle1 from "../img/ElementsBackground/circle1.svg"
 import circle2 from "../img/ElementsBackground/circle2.svg"
 import note from "../img/ElementsBackground/note1.svg"
+import axios from "axios"; 
 
 
 import '../css/CreatePlaylist.css'
@@ -102,9 +103,18 @@ function CreatePlaylist() {
     let instrumentalness:number = 0.5;
     let energy:number=0.5;
 
+    
     const getValues = ()=>{
-       console.log(artistname,trackname,numberOfSong,popularity,liveness,tempo,instrumentalness,energy)
-    }
+        if(artistname !== null && trackname !== null){
+            const route = 'http://mellow-dy.tinker.ovh/'
+         axios({
+                method: 'post',
+                url: route + '?artist='+ artistname + '&track='+trackname+'&limit='+numberOfSong+'&popularity='+popularity+'&liveness='+liveness+'&tempo='+tempo+'&instrumentalness='+instrumentalness+'&energy='+energy,
+                headers: { Authorization: `Bearer ${window.localStorage.getItem('FrontToken')}`}
+              })
+            }
+        }
+        
 
     const getArtistName=(e:any)=>{
         artistname = e.target.value;
@@ -173,7 +183,7 @@ function CreatePlaylist() {
             <form className='formgp'>
 
                         <div>
-                            <h2>Hi user,</h2>
+                            <h2>Hello you</h2>
                             <p>What do you feel like listening to today ?</p>
                         </div>
 
@@ -301,7 +311,7 @@ function CreatePlaylist() {
 
 
                         <div className='formdiv generatebutton'>
-                            <input type="submit" value="Generate playlist" onSubmit={getValues}/>
+                            <input type="button" value="Generate playlist" onClick={getValues}/>
                         </div>
 
             </form>
