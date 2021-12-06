@@ -7,7 +7,7 @@ function frontToken(){
     const frontToken = queryParam.get('token')
     localStorage.setItem('FrontToken', frontToken == null ? "error" : frontToken) 
     window.location.replace('https://pedantic-booth-c38e89.netlify.app/create-playlist')
-    const route = 'http://mellow-dy.tinker.ovh/'
+    const route = 'https://mellow-dy.tinker.ovh/'
     axios({ method: 'post', url: route, headers: { Authorization: `Bearer ${window.localStorage.getItem('FrontToken')}` } })
 
     return(

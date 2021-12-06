@@ -106,7 +106,7 @@ function CreatePlaylist() {
     
     const getValues = ()=>{
         if(artistname !== null && trackname !== null){
-            const route = 'http://mellow-dy.tinker.ovh/'
+            const route = 'https://mellow-dy.tinker.ovh/'
          axios({
                 method: 'post',
                 url: route + '?artist='+ artistname + '&track='+trackname+'&limit='+numberOfSong+'&popularity='+popularity+'&liveness='+liveness+'&tempo='+tempo+'&instrumentalness='+instrumentalness+'&energy='+energy,
