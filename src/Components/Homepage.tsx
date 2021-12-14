@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import "../css/Homepage.css"
 import imghomepage from "../img/Homepage/img_Homepage.png";
 import logo from "../img/Logo2.svg";
+import betalogo from "../img/betalogo.png";
 import moon from "../img/moon.svg";
 import triangle from "../img/ElementsBackground/triangle.svg"
 import circle1 from "../img/ElementsBackground/circle1.svg"
@@ -14,7 +15,7 @@ function Homepage(){
         <div className='homepagegrid'>
             <div className='headerhp'>
                 <Link to='/' className='linklogo'>
-                    <img src={logo} alt="Mellowdy's Logo"/>
+                    <img src={betalogo} alt="Mellowdy's Logo"/>
                 </Link>
                 
                     <div className='menu'>
