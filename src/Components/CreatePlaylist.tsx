@@ -107,6 +107,7 @@ function CreatePlaylist() {
     const getValues = ()=>{
         if(artistname !== null && trackname !== null){
             const route = 'https://mellow-dy.tinker.ovh/'
+            alert('Check your spotify accout, your playlist has been created')
          axios({
                 method: 'post',
                 url: route + '?artist='+ artistname + '&track='+trackname+'&limit='+numberOfSong+'&popularity='+popularity+'&liveness='+liveness+'&tempo='+tempo+'&instrumentalness='+instrumentalness+'&energy='+energy,

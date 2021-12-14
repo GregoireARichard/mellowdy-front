@@ -130,6 +130,7 @@ p{
 .generatebutton{
     display: flex;
     justify-content: center;
+    cursor:pointer;
 }
 
 
