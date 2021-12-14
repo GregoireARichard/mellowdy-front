@@ -312,7 +312,7 @@ function CreatePlaylist() {
 
 
                         <div className='formdiv generatebutton'>
-                            <input type="button" value="Generate playlist" onClick={getValues}/>
+                            <input className="inputGenerate" type="button" value="Generate playlist" onClick={getValues}/>
                         </div>
 
             </form>
